@@ -1,3 +1,42 @@
+
+/////////////////////////SNACK 3///////////////////////////////
+
+
+type Developer = Dipendente & {
+    livelloEsperienza : "Junior" | "Mid" | "Senior",
+    linguaggi?: string[],
+    certificazioni : string[]
+}
+
+type ProjectManager = Dipendente & {
+    teamSize : number | null,
+    budgetGestito? : number,
+    stakeholderPrincipali : string[] 
+}
+
+type Team = {
+    nome : string,
+    progettoAttuale : string | null,
+    budget : number,
+    membri: [ProjectManager, ...Developer[]]
+}
+
+/////////////////////////SNACK 2////////////////////////////////
+
+
+type Dipendente = {
+    nome: string,
+    cognome: string,
+    annoNascita: number,
+    sesso : "m" | "f",
+    anniDiServizio : number[],
+    readonly emailAziendale : string,
+    contratto: "determinato" | "indeterminato" | "freelance"
+}
+
+
+///////////////////////SNACK 1/////////////////////////////////////
+
 let apiData : unknown;
 
 if(typeof apiData === "string"){
@@ -16,17 +55,3 @@ if(typeof apiData === "string"){
     console.log("Tipo non suppoprtato")
 }
 
-// 🏆 Snack 1 - Gestione dei Tipi di Dato
-// Hai ricevuto un dato generico da un'API, ma non sai di che tipo sia…
-// Il tuo compito è controllare il tipo del dato e stampare il
-//  valore in modo corretto.
-
-// Requisiti
-// Se è una stringa → stampala in maiuscolo
-// Se è un numero → moltiplicalo per due e stampalo
-// Se è un booleano → stampa “Sì” o “No”
-// In tutti gli altri casi → stampa “Tipo non supportato”
-// 🎯 BONUS
-// Se è null → stampa “Il dato è vuoto”
-// Se è un array → stampa la sua lunghezza
-// Se è una Promise → attendi che si risolva e stampa il valore del resolve.
